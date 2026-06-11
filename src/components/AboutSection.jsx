@@ -59,7 +59,7 @@ function AboutSection() {
   return (
     <section id="about" className="w-full bg-white py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <span className="mb-10 block text-center font-heading text-[11px] font-medium uppercase tracking-[0.18em] text-black sm:mb-12">
+        <span className="mb-10 block text-center font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-12">
           About Us
         </span>
 
@@ -80,7 +80,7 @@ function AboutSection() {
             return (
               <div
                 key={feature.title}
-                className="flex w-full max-w-[300px] items-center gap-4 lg:max-w-[240px] lg:flex-1"
+                className="flex w-full max-w-[300px] items-center gap-4 lg:max-w-[300px] lg:flex-1"
               >
                 <div
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${feature.color}`}
