@@ -274,7 +274,7 @@ function ImpactSection() {
     <section id="services" className="w-full bg-white py-12 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col items-center text-center sm:mb-10 lg:mb-12">
-          <span className="mb-4 block font-heading text-[11px] font-medium uppercase tracking-[0.18em] text-black">
+          <span className="mb-4 block font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black">
             Our Impact
           </span>
           <h2 className="mb-6 max-w-3xl text-balance !text-black lg:mb-8">
@@ -282,7 +282,7 @@ function ImpactSection() {
           </h2>
           <a
             href="#meeting"
-            className="inline-flex items-center gap-2.5 rounded-full bg-[#0f1a2e] px-6 py-3 font-heading text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a2740] sm:text-[11px]"
+            className="inline-flex items-center mt-6 gap-2.5 rounded-full bg-[#0f1a2e] px-6 py-3 font-heading text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a2740] sm:text-[11px]"
           >
             Start a Free Meeting
             <ArrowIcon />

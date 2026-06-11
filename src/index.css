@@ -130,6 +130,25 @@ body {
   }
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.services-track {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-track {
+    scroll-behavior: auto;
+  }
+}
+
 .impact-grid {
   align-items: stretch;
 }
