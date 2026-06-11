@@ -51,22 +51,22 @@ function HeroSection() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* Left — content */}
           <div className="flex flex-col">
-            <p className="mb-5 font-heading text-[10px] font-medium uppercase tracking-[0.18em] text-[#6b7280] sm:text-[11px]">
+            <span className="mb-5 block font-heading text-[11px] font-medium uppercase tracking-[0.18em] text-[#6b7280]">
               Multi-Service Consulting Agency
-            </p>
+            </span>
 
             <h1 className="m-0 mb-6 font-heading text-[32px] font-semibold leading-[1.12] tracking-[-0.02em] !text-black sm:text-[38px] lg:text-[44px] xl:text-[48px]">
               Measurable Support for Business, Documents &amp; Digital Growth
             </h1>
 
-            <p className="mb-8 max-w-[520px] font-sans text-[14px] leading-[1.7] text-[#4b5563] sm:text-[15px] lg:mb-10">
+            <p className="mb-8 max-w-[520px] text-[#4b5563] lg:mb-10">
               Keshav Ram Enterprises is a multi-service consulting platform built
               for individuals, startups, vendors, and businesses that need
               clear guidance, structured support, and reliable execution — not
               confusion, delays, or scattered service providers.
             </p>
 
-            <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="flex flex-col gap-6  mt-10 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href="#consultation"
                 className="inline-flex w-fit shrink-0 items-center gap-2.5 rounded-full bg-[#0f1a2e] px-6 py-3.5 font-heading text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a2740] sm:text-[11px]"
@@ -87,11 +87,11 @@ function HeroSection() {
                     />
                   ))}
                 </div>
-                <p className="font-heading text-[9px] font-medium uppercase leading-[1.35] tracking-[0.12em] text-[#4b5563] sm:text-[10px]">
+                <span className="block font-heading text-[10px] font-medium uppercase leading-[1.35] tracking-[0.12em] text-[#4b5563]">
                   Trusted by
                   <br />
                   customers across services
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -108,13 +108,13 @@ function HeroSection() {
 
             <div className="absolute bottom-3 right-3 max-w-[220px] rounded-xl border border-white/10 bg-black/45 px-4 py-4 backdrop-blur-md sm:bottom-5 sm:right-5 sm:max-w-[240px] sm:rounded-2xl sm:px-5 sm:py-5">
               <Stars />
-              <p className="mb-2.5 font-sans text-[11px] leading-[1.55] text-white sm:mb-3 sm:text-[12px]">
+              <p className="mb-2.5 text-white sm:mb-3">
                 &ldquo;Their step-by-step support made documentation,
                 registration, and business setup much easier for us.&rdquo;
               </p>
-              <p className="font-heading text-[10px] font-medium text-white/70 sm:text-[11px]">
+              <span className="block font-heading text-[10px] font-medium text-white/70">
                 Local Business Owners
-              </p>
+              </span>
             </div>
           </div>
         </div>
