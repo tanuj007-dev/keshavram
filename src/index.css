@@ -66,6 +66,30 @@ body {
   min-height: 100svh;
 }
 
+.hero-image-clip {
+  clip-path: polygon(
+    0 32px,
+    32px 0,
+    100% 0,
+    100% 100%,
+    72px 100%,
+    0 calc(100% - 72px)
+  );
+}
+
+@media (max-width: 640px) {
+  .hero-image-clip {
+    clip-path: polygon(
+      0 24px,
+      24px 0,
+      100% 0,
+      100% 100%,
+      48px 100%,
+      0 calc(100% - 48px)
+    );
+  }
+}
+
 h1,
 h2 {
   font-family: var(--heading);
