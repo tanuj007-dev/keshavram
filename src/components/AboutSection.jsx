@@ -57,30 +57,30 @@ const features = [
 
 function AboutSection() {
   return (
-    <section id="about" className="w-full bg-white py-14 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <span className="mb-10 block text-center font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-12">
+    <section id="about" className="w-full bg-white py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <span className="mb-8 block text-center font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-10 sm:text-[16px] lg:mb-12">
           About Us
         </span>
 
-        <div className="mx-auto mb-16 max-w-5xl text-center sm:mb-20 lg:mb-24 lg:max-w-5xl">
-          <p className="text-pretty font-heading !text-[24px] font-semibold leading-[1.5] tracking-[-0.02em] !text-center !text-black">
+        <div className="mx-auto mb-12 max-w-[20rem] sm:mb-16 sm:max-w-2xl md:max-w-3xl lg:mb-24 lg:max-w-5xl">
+          <span className="block text-pretty text-justify font-heading text-[20px] font-semibold leading-[1.55] tracking-[-0.02em] text-black sm:text-center sm:text-[20px] sm:leading-[1.5] lg:text-[24px] lg:leading-[1.35]">
             Keshav Ram Enterprises is a multi-service consulting platform built for
             individuals, startups, vendors, and growing businesses that need
             reliable support beyond scattered advice. We help customers complete
             essential work across business setup, documentation, registration,
             finance, legal support, digital growth, courses, marketing, software,
             design, and service coordination.
-          </p>
+          </span>
         </div>
 
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 pt-2 sm:gap-10 sm:pt-4 lg:flex-row lg:items-start lg:justify-between lg:gap-6 lg:pt-6">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-7 pt-2 sm:gap-9 sm:pt-4 lg:flex-row lg:items-start lg:justify-between lg:gap-6 lg:pt-6">
           {features.map((feature) => {
             const Icon = feature.icon
             return (
               <div
                 key={feature.title}
-                className="flex w-full max-w-[300px] items-center gap-4 lg:max-w-[300px] lg:flex-1"
+                className="flex w-full max-w-[320px] items-center gap-4 sm:max-w-[340px] lg:max-w-[320px] lg:flex-1"
               >
                 <div
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${feature.color}`}

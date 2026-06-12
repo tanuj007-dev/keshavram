@@ -1,106 +1,97 @@
-import React from 'react';
-// Blog data structure matching the provided design and layout
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M3 8H13M13 8L9 4M13 8L9 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 const blogPosts = [
   {
     id: 1,
-    category: "/ADVERTISING & MARKETING",
-    date: "MARCH 1, 2026",
-    title: "Marketing, campaigns, branding, and customer reach",
-    description: "Insights into campaigns and reach that make marketing work for modern businesses.",
-    image: "/Group - 1 of 6 (1).png"
+    category: '/SERVICES',
+    date: 'FEBRUARY 7, 2026',
+    title: 'How to Choose the Right Service Support for Your Business',
+    description:
+      'Finding the right support can save time, reduce confusion, and help you complete important work....',
+    image: '/224b6681a78b4cf3637e9caa07b6d6e6d67f29b4.jpg',
   },
   {
     id: 2,
-    category: "/BANK & FINANCIAL",
-    date: "MARCH 3, 2026",
-    title: "Banking, payments, documents, and finance support",
-    description: "Understand how financial services, payments, and documentation support business growth.",
-    image: "/Group - 2 of 5.png"
+    category: '/COURSES',
+    date: 'FEBRUARY 3, 2026',
+    title: 'Choosing Courses That Match Your Career Goals',
+    description:
+      'The right course can improve skills, build confidence, and support better career or business opportunity.',
+    image: '/69b462cf0df56779cbf7870c14e5a0a836e6372a (1).jpg',
   },
   {
     id: 3,
-    category: "/BOOKING & RENTAL",
-    date: "MARCH 5, 2026",
-    title: "Bookings, rentals, reservations, and vendor support",
-    description: "Key insights on making booking and rental services smoother for users and vendors.",
-    image: "/Group - 3 of 5.png"
-  }
-];
+    category: '/MARKETING',
+    date: 'FEBRUARY 6, 2026',
+    title: 'How Local Marketing Helps Small Businesses Grow',
+    description:
+      'Business visibility improves when campaigns, social media, listings, and customer reach work together.',
+    image: '/8a4e89100c3290881246af2dafc61064238aa810.jpg',
+  },
+]
+
 export default function LatestInsights() {
   return (
-    <section className="w-full bg-white dark:bg-zinc-950 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
-        {/* Upper Tag */}
-        <span className="block text-xs md:text-sm font-semibold tracking-widest text-gray-500 dark:text-zinc-400 uppercase mb-3">
-          OUR BLOGS
+    <section id="blogs" className="w-full bg-white py-12 px-5 sm:py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <span className="mb-3 block font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-4 sm:text-[16px]">
+          Our Blogs
         </span>
-        
-        {/* Header with Title and "All Blog" Link */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-gray-200 dark:border-zinc-800">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-gray-900 dark:text-zinc-50 font-sans leading-tight">
+
+        <div className="flex items-start justify-between gap-3 border-b border-[#e5e5e5] pb-5 sm:items-end sm:gap-6 sm:pb-6">
+          <h2 className="m-0 min-w-0 flex-1 font-heading text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] !text-black sm:text-[40px] lg:text-[56px]">
             Latest Insights
           </h2>
-          
-          <a 
-            href="#all-blogs" 
-            className="inline-flex items-center gap-2 text-sm md:text-base font-medium text-gray-800 hover:text-black dark:text-zinc-200 dark:hover:text-white transition-colors duration-200 group-hover:underline"
+
+          <a
+            href="#all-blogs"
+            className="inline-flex shrink-0 items-center gap-2.5 pt-1 font-heading text-[13px] font-medium text-black transition-opacity hover:opacity-80 sm:pt-0 sm:text-[14px]"
           >
-            <span>All Blog</span>
-            <div className="w-8 h-8 rounded-full bg-emerald-800 dark:bg-emerald-700 flex items-center justify-center text-white transition-transform duration-300 group-hover:translate-x-1">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 20 20" 
-                fill="currentColor" 
-                className="w-4 h-4"
-              >
-                <path 
-                  fillRule="evenodd" 
-                  d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.97H3.75A.75.75 0 013 10z" 
-                  clipRule="evenodd" 
-                />
-              </svg>
-            </div>
+            All Blog
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1e4d2b] text-white sm:h-9 sm:w-9">
+              <ArrowIcon />
+            </span>
           </a>
         </div>
-        {/* Responsive Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 mt-10">
+
+        <div className="mt-8 grid grid-cols-1 gap-10 sm:mt-10 md:grid-cols-3 md:gap-6 lg:gap-8">
           {blogPosts.map((post) => (
             <article key={post.id} className="group flex flex-col">
-              {/* Image Container with Zoom Effect */}
-              <div className="overflow-hidden rounded-[24px] aspect-[4/3] bg-gray-100 dark:bg-zinc-900">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  loading="lazy"
-                  onError={(e) => {
-                    // Fallback to beautiful color blocks if local image is not loaded
-                    e.target.style.display = 'none';
-                    e.target.parentNode.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
-                  }}
-                />
-              </div>
-              {/* Metadata Section */}
-              <div className="mt-5">
-                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold tracking-wider pb-3 border-b border-gray-200 dark:border-zinc-800">
-                  {/* Category */}
-                  <span className="text-gray-900 dark:text-zinc-100 uppercase">
-                    {post.category}
-                  </span>
-                  {/* Date */}
-                  <span className="text-gray-400 dark:text-zinc-500 font-normal">
-                    {post.date}
-                  </span>
+              <a href={`#post-${post.id}`} className="block overflow-hidden rounded-[20px] sm:rounded-[24px]">
+                <div className="aspect-[4/3] overflow-hidden bg-[#f3f3f3]">
+                  <img
+                    src={encodeURI(post.image)}
+                    alt={post.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+
+              <div className="mt-5 border-b border-[#e5e5e5] pb-3">
+                <div className="flex items-center justify-between gap-3 font-heading text-[10px] font-semibold uppercase tracking-[0.12em] text-black sm:text-[11px]">
+                  <span>{post.category}</span>
+                  <span className="shrink-0 font-normal text-[#9ca3af]">{post.date}</span>
                 </div>
               </div>
-              {/* Title */}
-              <h3 className="mt-4 text-xl sm:text-2xl font-semibold text-gray-900 dark:text-zinc-50 leading-snug tracking-tight group-hover:text-emerald-800 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                <a href={`#post-${post.id}`}>
-                  {post.title}
-                </a>
+
+              <h3 className="mt-4 font-heading text-[17px] font-semibold leading-snug tracking-[-0.01em] !text-black transition-colors group-hover:!text-[#333] sm:text-[18px] lg:text-[20px]">
+                <a href={`#post-${post.id}`}>{post.title}</a>
               </h3>
-              {/* Description */}
-              <p className="mt-3 text-gray-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed line-clamp-3">
+
+              <p className="mt-3 text-[13px] leading-[1.6] text-[#6b7280] sm:text-[14px]">
                 {post.description}
               </p>
             </article>
@@ -108,5 +99,5 @@ export default function LatestInsights() {
         </div>
       </div>
     </section>
-  );
+  )
 }

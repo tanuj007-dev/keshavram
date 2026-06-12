@@ -38,12 +38,12 @@ const stats = [
 
 function StatCard({ stat }) {
   return (
-    <article className={`flex h-full flex-col px-8 py-9 text-white sm:px-9 sm:py-10 lg:px-10 lg:py-11 ${stat.bg}`}>
-      <div className="mb-8 flex items-end gap-3 sm:gap-4">
-        <span className="shrink-0 font-heading text-[52px] font-semibold leading-[0.85] tracking-tight sm:text-[58px] lg:text-[64px]">
+    <article className={`flex h-full flex-col px-6 py-8 text-white sm:px-9 sm:py-10 lg:px-10 lg:py-11 ${stat.bg}`}>
+      <div className="mb-6 flex items-end gap-3 sm:mb-8 sm:gap-4">
+        <span className="shrink-0 font-heading text-[44px] font-semibold leading-[0.85] tracking-tight sm:text-[58px] lg:text-[64px]">
           {stat.value}
         </span>
-        <span className="max-w-[9rem] pb-1 font-heading text-[17px] font-medium leading-[1.2] sm:max-w-[10rem] sm:text-[19px] lg:text-[20px]">
+        <span className="max-w-[8rem] pb-1 font-heading text-[15px] font-medium leading-[1.2] sm:max-w-[10rem] sm:text-[19px] lg:text-[20px]">
           {stat.title}
         </span>
       </div>
@@ -59,22 +59,22 @@ function StatCard({ stat }) {
 
 function ResultSection() {
   return (
-    <section id="results" className="w-full bg-[#f5f5f5] py-14 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-8 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-          <div className="max-w-3xl lg:max-w-4xl">
-            <span className="mb-4 block font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-5">
+    <section id="results" className="w-full bg-[#f5f5f5] py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col gap-6 sm:mb-10 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+          <div className="max-w-3xl border-l-2 border-black pl-4 sm:border-l-0 sm:pl-0 lg:max-w-4xl">
+            <span className="mb-3 block font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-4 sm:text-[16px]">
               Consultancy Result
             </span>
-            <h2 className="text-left text-[24px] font-semibold leading-[1.5] tracking-[-0.02em] !text-black">
+            <h2 className="text-left text-[22px] font-semibold leading-[1.35] tracking-[-0.02em] !text-black sm:text-[28px] sm:leading-[1.4] lg:text-[36px] xl:text-[44px]">
               100% guided support for services, courses, documents, and business setup
-             with clear steps from enquiry to completion.
+              with clear steps from enquiry to completion.
             </h2>
           </div>
 
           <a
             href="#meeting"
-            className="inline-flex w-fit shrink-0 items-center gap-2.5 self-start rounded-full bg-black px-6 py-3.5 font-heading text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a1a1a] sm:self-auto sm:px-7 sm:py-4 sm:text-[11px] lg:mb-25"
+            className="inline-flex w-fit shrink-0 items-center gap-2.5 self-start rounded-full bg-black px-6 py-3.5 font-heading text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a1a1a] sm:self-auto sm:px-7 sm:py-4 sm:text-[11px]"
           >
             Start a Free Meeting
             <ArrowIcon />

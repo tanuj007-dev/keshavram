@@ -39,40 +39,37 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="w-full bg-white dark:bg-zinc-950 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      <div className="max-w-3xl mx-auto">
-        {/* Upper Tag */}
-        <span className="block text-center text-xs md:text-sm font-semibold tracking-widest text-gray-500 dark:text-zinc-400 uppercase mb-3">
+    <section id="faq" className="w-full bg-white py-12 px-5 sm:py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl">
+        <span className="mb-4 block text-center font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-5 sm:text-[16px]">
           FAQ
         </span>
-        
-        {/* Main Heading */}
-        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-gray-900 dark:text-zinc-50 mb-12 font-sans leading-tight md:leading-[1.1]">
-          Frequently asked<br className="sm:hidden" /> questions
+
+        <h2 className="mx-auto mb-8 max-w-[21rem] text-center text-balance !text-black sm:mb-10 sm:max-w-none lg:mb-12">
+          Frequently asked questions
         </h2>
 
         {/* Accordion Questions Container */}
-        <div className="space-y-4 mt-10">
+        <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
           {faqData.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={faq.id}
-                className={`group border border-transparent rounded-2xl transition-all duration-300 ${
-                  isOpen 
-                    ? 'bg-gray-50/90 dark:bg-zinc-900/60 shadow-sm' 
-                    : 'bg-gray-50/50 dark:bg-zinc-900/30 hover:bg-gray-50/90 dark:hover:bg-zinc-900/50'
+                className={`group rounded-2xl border border-transparent transition-all duration-300 ${
+                  isOpen
+                    ? 'bg-[#f5f5f5] shadow-sm'
+                    : 'bg-[#fafafa] hover:bg-[#f5f5f5]'
                 }`}
               >
                 <button
                   onClick={() => handleToggle(index)}
-                  className="w-full flex items-center justify-between text-left py-5 px-6 sm:px-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-2xl"
+                  className="flex w-full items-center justify-center rounded-2xl px-4 py-4 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:justify-between sm:px-6 sm:py-5 sm:text-left"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${faq.id}`}
                 >
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    {/* Plus/Minus Morphing Icon */}
-                    <div className="relative w-5 h-5 flex items-center justify-center flex-shrink-0 text-gray-600 dark:text-zinc-400 mt-0.5 transition-colors duration-200">
+                  <div className="flex flex-col items-center gap-2.5 sm:flex-row sm:items-center sm:gap-5">
+                    <div className="relative flex h-5 w-5 shrink-0 items-center justify-center text-black">
                       {/* Horizontal bar */}
                       <span className="absolute w-4 h-[2px] bg-current rounded-full transition-transform duration-300 ease-in-out" />
                       {/* Vertical bar (fades out and rotates to hide when open) */}
@@ -84,7 +81,7 @@ export default function FaqSection() {
                     </div>
 
                     {/* Question Text */}
-                    <span className="font-medium text-gray-900 dark:text-zinc-100 text-base sm:text-lg leading-snug transition-colors duration-200 group-hover:text-black dark:group-hover:text-white">
+                    <span className="max-w-[16rem] font-heading text-[14px] font-medium leading-snug text-black sm:max-w-none sm:text-[16px]">
                       {faq.question}
                     </span>
                   </div>
@@ -101,7 +98,7 @@ export default function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 pr-6 sm:pr-8 pl-[60px] sm:pl-[72px] text-gray-600 dark:text-zinc-400 leading-relaxed text-sm sm:text-base">
+                    <p className="px-4 pb-5 text-center text-[13px] leading-relaxed text-[#4b5563] sm:px-8 sm:pb-6 sm:pl-[72px] sm:text-left sm:text-[14px]">
                       {faq.answer}
                     </p>
                   </div>

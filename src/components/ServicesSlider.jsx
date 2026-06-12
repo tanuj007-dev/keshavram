@@ -48,7 +48,7 @@ function NavButton({ direction, onClick, label, className = '' }) {
 
 function ServiceSlide({ slide }) {
   return (
-    <article className="services-slide w-[82vw] shrink-0 snap-center sm:w-[300px] md:w-[320px] lg:w-[360px] xl:w-[380px]">
+    <article className="services-slide w-[78vw] shrink-0 snap-center sm:w-[300px] md:w-[320px] lg:w-[360px] xl:w-[380px]">
       <img
         src={encodeURI(slide.src)}
         alt={slide.alt}
@@ -128,14 +128,14 @@ function ServicesSlider() {
   }, [scrollToIndex])
 
   return (
-    <section id="services" className="w-full bg-[#f5f5f5] py-14 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col items-center text-center sm:mb-12">
-          <span className="mb-5 font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-6">
+    <section id="services" className="w-full bg-[#f5f5f5] py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col items-center text-center sm:mb-10 lg:mb-12">
+          <span className="mb-4 font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-5 sm:text-[16px]">
             Our Service
           </span>
 
-          <h2 className="mx-auto max-w-3xl text-balance !text-center !text-black lg:max-w-4xl">
+          <h2 className="mx-auto max-w-[18rem] text-balance !text-center !text-black sm:max-w-2xl lg:max-w-4xl">
             Service Systems That Help Businesses Work Smarter
           </h2>
         </div>
@@ -151,18 +151,18 @@ function ServicesSlider() {
             direction="prev"
             onClick={goPrev}
             label="Previous slide"
-            className="absolute left-0 top-1/2 z-10 -translate-y-1/2"
+            className="absolute left-1 top-[42%] z-10 -translate-y-1/2 sm:left-0 sm:top-1/2"
           />
           <NavButton
             direction="next"
             onClick={goNext}
             label="Next slide"
-            className="absolute right-0 top-1/2 z-10 -translate-y-1/2"
+            className="absolute right-1 top-[42%] z-10 -translate-y-1/2 sm:right-0 sm:top-1/2"
           />
 
           <div
             ref={trackRef}
-            className="services-track flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-12 pb-2 scrollbar-hide sm:gap-5 sm:px-14 lg:px-16"
+            className="services-track flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-10 pb-2 scrollbar-hide sm:justify-center sm:gap-5 sm:px-14 lg:px-16"
           >
             {slides.map((slide) => (
               <ServiceSlide key={slide.src} slide={slide} />

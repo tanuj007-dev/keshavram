@@ -51,7 +51,7 @@ function HeroSection() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* Left — content */}
           <div className="flex flex-col">
-            <span className="mb-5 block font-heading text-[11px] font-medium uppercase tracking-[0.18em] text-[#6b7280]">
+            <span className="mt-2 block font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black">
               Multi-Service Consulting Agency
             </span>
 
