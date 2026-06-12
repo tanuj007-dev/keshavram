@@ -7,6 +7,15 @@
   --font-paragraph: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
+/* Utility: hide scrollbar visually while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;

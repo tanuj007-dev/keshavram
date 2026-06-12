@@ -1,3 +1,5 @@
+import { useState, useRef, useCallback, useEffect } from 'react'
+
 function ArrowIcon({ className = '' }) {
   return (
     <svg
@@ -16,6 +18,37 @@ function ArrowIcon({ className = '' }) {
         strokeLinejoin="round"
       />
     </svg>
+  )
+}
+
+function NavButton({ direction, onClick, label, className = '' }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className={`flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e5e5] bg-white/90 text-black shadow-md transition-all hover:bg-white active:scale-95 backdrop-blur-sm ${className}`}
+    >
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        {direction === 'prev' ? (
+          <path
+            d="M10 3L5 8L10 13"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ) : (
+          <path
+            d="M6 3L11 8L6 13"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        )}
+      </svg>
+    </button>
   )
 }
 
@@ -61,16 +94,16 @@ function ViewButton() {
   )
 }
 
-function CaseStudyCard({ study }) {
+function CaseStudyCard({ study, isSlider = false }) {
+  const aspectClass = isSlider
+    ? 'aspect-[4/3]'
+    : study.featured
+      ? 'aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9]'
+      : 'aspect-[16/10] sm:aspect-[16/9]'
+
   return (
     <article className="group overflow-hidden rounded-[20px] border border-[#ececec] bg-white sm:rounded-[24px]">
-      <div
-        className={`relative w-full overflow-hidden ${
-          study.featured
-            ? 'aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9]'
-            : 'aspect-[16/10] sm:aspect-[16/9]'
-        }`}
-      >
+      <div className={`relative w-full overflow-hidden ${aspectClass}`}>
         <img
           src={study.image}
           alt={study.title}
@@ -102,8 +135,63 @@ function CaseStudyCard({ study }) {
   )
 }
 
-function CaseStudiesSection() {
+export default function CaseStudiesSection() {
   const [featured, ...rest] = caseStudies
+  const trackRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const scrollToIndex = useCallback((index) => {
+    const track = trackRef.current
+    if (!track) return
+
+    const slideElements = track.querySelectorAll('.case-study-slide')
+    const target = slideElements[index]
+    if (!target) return
+
+    const offset = target.offsetLeft
+    track.scrollTo({ left: offset, behavior: 'smooth' })
+    setActiveIndex(index)
+  }, [])
+
+  const goNext = useCallback(() => {
+    const next = activeIndex >= caseStudies.length - 1 ? 0 : activeIndex + 1
+    scrollToIndex(next)
+  }, [activeIndex, scrollToIndex])
+
+  const goPrev = useCallback(() => {
+    const prev = activeIndex <= 0 ? caseStudies.length - 1 : activeIndex - 1
+    scrollToIndex(prev)
+  }, [activeIndex, scrollToIndex])
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return undefined
+
+    const onScroll = () => {
+      if (window.innerWidth >= 768) return // Only track scroll on mobile/tablet (< md)
+
+      const slideElements = [...track.querySelectorAll('.case-study-slide')]
+      if (!slideElements.length) return
+
+      const trackScrollLeft = track.scrollLeft
+      let closestIndex = 0
+      let closestDistance = Infinity
+
+      slideElements.forEach((slide, index) => {
+        const slideStart = slide.offsetLeft
+        const distance = Math.abs(trackScrollLeft - slideStart)
+        if (distance < closestDistance) {
+          closestDistance = distance
+          closestIndex = index
+        }
+      })
+
+      setActiveIndex(closestIndex)
+    }
+
+    track.addEventListener('scroll', onScroll, { passive: true })
+    return () => track.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <section id="case-studies" className="w-full bg-white py-12 sm:py-16 lg:py-20">
@@ -121,7 +209,7 @@ function CaseStudiesSection() {
 
           <a
             href="#case-studies"
-            className="inline-flex mb-10 w-fit shrink-0 items-center gap-3 self-start rounded-full border border-black/10 bg-white py-2 pl-5 pr-2 font-heading text-[10px] font-medium uppercase tracking-[0.08em] text-black transition-colors hover:bg-[#f5f5f5] sm:self-auto sm:pl-6 sm:text-[11px]"
+            className="inline-flex mb-10 w-fit shrink-0 items-center gap-3 self-start rounded-full border border-black/10 bg-white py-2 pl-5 pr-2 font-heading text-[12px] font-medium uppercase tracking-[0.08em] text-black transition-colors hover:bg-[#f5f5f5] sm:self-auto sm:pl-6 sm:text-[11px]"
           >
             All Case Studies
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1e4d2b] text-white sm:h-9 sm:w-9">
@@ -130,7 +218,8 @@ function CaseStudiesSection() {
           </a>
         </div>
 
-        <div className="flex flex-col gap-4 sm:gap-5">
+        {/* Desktop View */}
+        <div className="hidden md:flex flex-col gap-4 sm:gap-5">
           <CaseStudyCard study={featured} />
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
             {rest.map((study) => (
@@ -138,9 +227,49 @@ function CaseStudiesSection() {
             ))}
           </div>
         </div>
+
+        {/* Mobile/Tablet Slider View */}
+        <div className="relative md:hidden">
+          {/* Arrow navigation for mobile */}
+          <NavButton
+            direction="prev"
+            onClick={goPrev}
+            label="Previous case study"
+            className="absolute left-2 top-[30%] sm:top-[35%] z-10 -translate-y-1/2"
+          />
+          <NavButton
+            direction="next"
+            onClick={goNext}
+            label="Next case study"
+            className="absolute right-2 top-[30%] sm:top-[35%] z-10 -translate-y-1/2"
+          />
+
+          <div
+            ref={trackRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 relative"
+          >
+            {caseStudies.map((study) => (
+              <div key={study.title} className="case-study-slide w-full shrink-0 snap-center">
+                <CaseStudyCard study={study} isSlider />
+              </div>
+            ))}
+          </div>
+
+          {/* Dots Indicator for Mobile */}
+          <div className="mt-4 flex justify-center gap-1.5">
+            {caseStudies.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => scrollToIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? 'w-5 bg-[#1e4d2b]' : 'w-1.5 bg-[#e5e5e5]'
+                  }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
 }
-
-export default CaseStudiesSection

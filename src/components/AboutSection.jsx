@@ -59,12 +59,12 @@ function AboutSection() {
   return (
     <section id="about" className="w-full bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <span className="mb-8 block text-center font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-10 sm:text-[16px] lg:mb-12">
+        <span className="mb-8 block text-center font-heading text-[16px] font-semibold uppercase tracking-[0.18em] text-black sm:mb-10 sm:text-[16px] lg:mb-12">
           About Us
         </span>
 
         <div className="mx-auto mb-12 max-w-[20rem] sm:mb-16 sm:max-w-2xl md:max-w-3xl lg:mb-24 lg:max-w-5xl">
-          <span className="block text-pretty text-justify font-heading text-[20px] font-semibold leading-[1.55] tracking-[-0.02em] text-black sm:text-center sm:text-[20px] sm:leading-[1.5] lg:text-[24px] lg:leading-[1.35]">
+          <span className="block text-pretty text-left sm:text-center font-heading text-[20px] font-semibold leading-[1.55] tracking-[-0.02em] text-black sm:text-[20px] sm:leading-[1.5] lg:text-[24px] lg:leading-[1.35]">
             Keshav Ram Enterprises is a multi-service consulting platform built for
             individuals, startups, vendors, and growing businesses that need
             reliable support beyond scattered advice. We help customers complete

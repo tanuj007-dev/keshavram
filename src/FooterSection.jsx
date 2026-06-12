@@ -374,7 +374,7 @@ export default function FooterSection() {
 
             <div className="mt-5 border-t border-neutral-800 pt-5 text-center lg:mt-14 lg:border-t-0 lg:pt-0 lg:text-left">
 
-              <h3 className="mb-2 font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8e8e8e] lg:mb-3.5 lg:text-[14px]">
+              <h3 className="mb-2 font-heading text-[16px] font-semibold uppercase tracking-[0.2em] text-[#8e8e8e] lg:mb-3.5 lg:text-[16px]">
 
                 Newsletter
 

@@ -227,17 +227,17 @@ const cards = [
 function ServiceCard({ card }) {
   return (
     <article
-      className={`flex h-full flex-col rounded-2xl border border-[#e8e8e8] bg-white p-5 sm:p-6 ${card.placement} ${card.order}`}
+      className={`flex h-full flex-col rounded-2xl border border-[#e8e8e8] bg-white p-3 sm:p-5 lg:p-6 ${card.placement} ${card.order}`}
     >
       <div
-        className={`mb-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${iconColors[card.color]}`}
+        className={`mb-3 flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full ${iconColors[card.color]}`}
       >
         <CardIcon type={card.icon} />
       </div>
-      <h3 className="m-0 mb-2 font-heading text-[15px] font-semibold leading-snug !text-black sm:text-[16px]">
+      <h3 className="m-0 mb-1.5 font-heading text-[13px] sm:text-[15px] lg:text-[16px] font-semibold leading-snug !text-black">
         {card.title}
       </h3>
-      <p className="text-[#4b5563]">
+      <p className="text-[11.5px] sm:text-[13px] lg:text-[14px] leading-relaxed text-[#4b5563]">
         {card.description}
       </p>
     </article>
@@ -246,7 +246,7 @@ function ServiceCard({ card }) {
 
 function TeamImageCard() {
   return (
-    <div className="relative order-5 h-full min-h-[380px] overflow-hidden rounded-2xl sm:min-h-[300px] lg:col-start-2 lg:row-start-2 lg:row-span-2 lg:min-h-0">
+    <div className="relative order-5 h-full min-h-[220px] sm:min-h-[300px] overflow-hidden rounded-2xl col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-2 lg:row-span-2 lg:min-h-0">
       <img
         src="/33043647d50a3e523c727d9c0cde39224dea70eb.jpg"
         alt="Professional team reviewing documents together"
@@ -289,7 +289,7 @@ function ImpactSection() {
           </a>
         </div>
 
-        <div className="impact-grid grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-5 lg:gap-4">
+        <div className="impact-grid grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:grid-rows-5 lg:gap-4">
           {cards.slice(0, 4).map((card) => (
             <ServiceCard key={card.title} card={card} />
           ))}
