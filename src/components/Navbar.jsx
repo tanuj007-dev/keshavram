@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Courses', href: '#courses' },
   { label: 'About', href: '#about' },
   { label: 'Certificate', href: '#certificate' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'Blog', href: '#blogs' },
 ]
 
 function ArrowIcon() {
@@ -34,21 +34,14 @@ function ArrowIcon() {
 function NavLinkItem({ link, className, onClick }) {
   if (link.to) {
     return (
-      <Link
-        to={link.to}
-        className={className}
-        onClick={onClick}
-      >
+      <Link to={link.to} className={className} onClick={onClick}>
         {link.label}
       </Link>
     )
   }
+
   return (
-    <a
-      href={link.href}
-      className={className}
-      onClick={onClick}
-    >
+    <a href={link.href} className={className} onClick={onClick}>
       {link.label}
     </a>
   )
@@ -61,7 +54,6 @@ function Navbar() {
   return (
     <header className="w-full bg-[#f3f3f3] border-b border-[#e8e8e8]">
       <div className="relative mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link to="/" className="relative z-20 shrink-0">
           <img
             src="/da1c33177006ccc1015506eff0e60d070cb6f646.png"
@@ -70,16 +62,13 @@ function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav — centered */}
         <nav
           className="absolute left-1/2 hidden -translate-x-1/2 lg:flex"
           aria-label="Main navigation"
         >
           <ul className="flex items-center gap-8 xl:gap-10">
             {navLinks.map((link) => {
-              const isActive = link.to
-                ? location.pathname === link.to
-                : false
+              const isActive = link.to ? location.pathname === link.to : false
               return (
                 <li key={link.label}>
                   <NavLinkItem
@@ -94,7 +83,6 @@ function Navbar() {
           </ul>
         </nav>
 
-        {/* Desktop CTA */}
         <a
           href="#contact"
           className="relative z-20 hidden items-center gap-2.5 rounded-full bg-[#0f1a2e] px-5 py-2.5 font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1a2740] lg:inline-flex"
@@ -103,7 +91,6 @@ function Navbar() {
           <ArrowIcon />
         </a>
 
-        {/* Mobile menu button */}
         <button
           type="button"
           className="relative z-20 inline-flex items-center justify-center rounded-md p-2 text-[#1a1a1a] lg:hidden"
@@ -142,7 +129,6 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
         id="mobile-menu"
         className={`overflow-hidden border-t border-[#e8e8e8] bg-[#f3f3f3] transition-all duration-300 lg:hidden ${
@@ -152,9 +138,7 @@ function Navbar() {
         <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6" aria-label="Mobile navigation">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => {
-              const isActive = link.to
-                ? location.pathname === link.to
-                : false
+              const isActive = link.to ? location.pathname === link.to : false
               return (
                 <li key={link.label}>
                   <NavLinkItem

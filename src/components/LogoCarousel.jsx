@@ -29,19 +29,21 @@ function LogoCarousel() {
   const marqueeLogos = [...logos, ...logos]
 
   return (
-    <section className="w-full overflow-hidden bg-white py-8 sm:py-10">
-      <div className="logo-marquee">
-        <div className="logo-marquee-track">
-          {marqueeLogos.map((logo, index) => (
-            <div key={`${logo.src}-${index}`} className="logo-marquee-item">
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="logo-marquee-img h-7 w-auto max-w-[120px] object-contain sm:h-8 sm:max-w-[140px] lg:h-9 lg:max-w-[160px]"
-                draggable="false"
-              />
-            </div>
-          ))}
+    <section className="w-full bg-white py-8 sm:py-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="logo-marquee">
+          <div className="logo-marquee-track">
+            {marqueeLogos.map((logo, index) => (
+              <div key={`${logo.src}-${index}`} className="logo-marquee-item">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="logo-marquee-img h-7 w-auto max-w-[120px] object-contain sm:h-8 sm:max-w-[140px] lg:h-9 lg:max-w-[160px]"
+                  draggable="false"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

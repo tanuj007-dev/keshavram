@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -14,12 +15,16 @@ import FaqSection from './components/FaqSection'
 import LatestInsights from './components/LatestInsights'
 import HeroSection1 from './components/herosection1'
 import FooterSection from './FooterSection'
-import ServicesPage from './pages/ServicesPage'
-
 import { useScrollReveal } from './hooks/useScrollReveal'
+
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 
 function ScrollSection({ children }) {
   return <div className="scroll-reveal w-full">{children}</div>
+}
+
+function PageLoader() {
+  return <div className="min-h-screen w-full bg-white" aria-label="Loading page" />
 }
 
 function HomePage() {
@@ -85,7 +90,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/services" element={<ServicesPage />} />
+      <Route
+        path="/services"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <ServicesPage />
+          </Suspense>
+        }
+      />
     </Routes>
   )
 }
